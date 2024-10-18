@@ -132,5 +132,7 @@ public class Pedido implements Serializable {
         }
         return false;
     }
-
+    public void setEstado(String pronto) {
+        this.estado = pronto;
+    }
 }

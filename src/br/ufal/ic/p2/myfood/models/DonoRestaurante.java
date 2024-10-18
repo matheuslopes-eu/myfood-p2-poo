@@ -55,4 +55,7 @@ public class DonoRestaurante extends Usuario{
     public boolean podeCriarEmpresa() {
         return true; // DonoRestaurante pode criar empresas
     }
+
+    public boolean ehEntregador(){ return false;}
 }
+

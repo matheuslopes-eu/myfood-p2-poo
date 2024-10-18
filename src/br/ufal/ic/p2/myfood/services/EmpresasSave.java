@@ -4,27 +4,25 @@ import br.ufal.ic.p2.myfood.models.Empresa;
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class RestaurantePorDonoSave {
+public class EmpresasSave {
+    private static final String FILE_PATH = "empresas.dat";
 
-    private static final String FILE_PATH = "restaurantesPorDono.dat";
-
-    public static void salvarRestaurantesPorDono(Map<Integer, List<Empresa>> restaurantesPorDono) throws IOException {
+    public static void salvarEmpresas(Map<Integer, Empresa> empresas) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_PATH))) {
-            oos.writeObject(restaurantesPorDono);
+            oos.writeObject(empresas);
         }
     }
 
     @SuppressWarnings("unchecked")
-    public static Map<Integer, List<Empresa>> carregarRestaurantesPorDono() throws IOException, ClassNotFoundException {
+    public static Map<Integer, Empresa> carregarEmpresas() throws IOException, ClassNotFoundException {
         File file = new File(FILE_PATH);
         if (!file.exists()) {
             return new HashMap<>();
         }
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_PATH))) {
-            return (Map<Integer, List<Empresa>>) ois.readObject();
+            return (Map<Integer, Empresa>) ois.readObject();
         }
     }
 }

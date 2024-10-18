@@ -112,4 +112,5 @@ public abstract class Usuario implements Serializable {
      * @return true se o usuário pode criar uma empresa, false caso contrário.
      */
     public abstract boolean podeCriarEmpresa();
+    public abstract boolean ehEntregador();
 }
